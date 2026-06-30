@@ -15,7 +15,7 @@ The preprocessing module performs the following operations:
 The classification model relies on transfer learning using the **VGG16** network architecture pre-trained on ImageNet.
 
 * **Feature extractor:** VGG16 base model with the last 4 layers unfrozen for fine-tuning.
-* **Custom classifier head:** * `GlobalAveragePooling2D` for dimensionality reduction.
+* **Custom classifier head:**  `GlobalAveragePooling2D` for dimensionality reduction.
   * Deep Dense network layers (256 -> 128 -> 64) with `ReLU` activations.
   * `BatchNormalization` and `Dropout` (0.5 and 0.3) layers to prevent overfitting.
   * Final `Dense` layer with `Sigmoid` activation for binary classification.
