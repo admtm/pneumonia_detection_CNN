@@ -78,7 +78,7 @@ Medical datasets require specialized indexing. This module addresses several pre
 This module handles data loading, model compilation, and the training loop.
 * **Custom memory-efficient loader:** Implements a `DicomDataGenerator` inheriting from `keras.utils.Sequence`. It handles pixel value normalization (0-255 scale), resizing to 224x224x3, and real-time data augmentation (Gaussian blur and random noise injection) only on the training split.
 * **Feature extractor:** The network is built upon the VGG16 model pre-trained on ImageNet. The initial convolutional blocks are frozen, while the final 4 layers are set to trainable.
-* **Classifier head:** Features a customized top network including `GlobalAveragePooling2D`, `BatchNormalization`, a dense network structure (256 -> 64 units) with `ReLU` activations, and `Dropout` layers (0.5 and 0.2) to prevent overfitting. 
+* **Classifier head:** Features a customized top network including `GlobalAveragePooling2D`, `BatchNormalization`, a dense network structure (256 -> 128 -> 64 units) with `ReLU` activations, and `Dropout` layers (0.5 and 0.3) to prevent overfitting. 
 * **Optimization:** Employs the Adam optimizer with a conservative learning rate. Class weights are computed dynamically to balance the loss function against class distribution asymmetry.
 
 ### 3. Evaluation and results
