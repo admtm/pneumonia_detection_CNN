@@ -78,15 +78,29 @@ Medical datasets require specialized indexing. This module addresses several pre
 This module handles data loading, model compilation, and the training loop.
 * **Custom memory-efficient loader:** Implements a `DicomDataGenerator` inheriting from `keras.utils.Sequence`. It handles pixel value normalization (0-255 scale), resizing to 224x224x3, and real-time data augmentation (Gaussian blur and random noise injection) only on the training split.
 * **Feature extractor:** The network is built upon the VGG16 model pre-trained on ImageNet. The initial convolutional blocks are frozen, while the final 4 layers are set to trainable.
-* **Classifier head:** Features a customized top network including `GlobalAveragePooling2D`, `BatchNormalization`, a dense network structure (256 -> 128 -> 64 units) with `ReLU` activations, and `Dropout` layers (0.5 and 0.3) to prevent overfitting. 
-* **Optimization:** Employs the Adam optimizer with a conservative learning rate. Class weights are computed dynamically to balance the loss function against class distribution asymmetry.
+* **Classifier head:** Features a customized top network including `GlobalAveragePooling2D`, a dense network structure (256 -> 128 -> 64 units) with `ReLU` activations, and `Dropout` layers (0.5 and 0.3) to prevent overfitting. 
+* **Optimization:** Employs the Adam optimizer with a conservative learning rate. Class weigh![Uploading curves_for_gith.ub2.png…]()
+ts are computed dynamically to balance the loss function against class distribution asymmetry.
 
 ### 3. Evaluation and results
 Training curves (loss and accuracy) are plotted after training to monitor model convergence and to easily identify potential underfitting or overfitting. The final performance is measured on a separate test set that the model has never seen before.
+<img width="1189" height="490" alt="val_train_curves" src="https://github.com/user-attachments/assets/97c33e8c-fa53-4173-908e-30cb1a38bda3" />
 
 Due to random weight initialization and the localized training splits, the test accuracy typically varies between 78% and 82%.
 
+The system also includes a visual testing tool. It processes individual X-ray images, makes a prediction, then displays the raw image alongside the model's confidence score. If the prediction is correct, the text is highlighted in green, while mistakes are marked in red.
+
+<table>
+  <tr>
+      <img width="481" height="539" alt="xrr_4" src="https://github.com/user-attachments/assets/7b77d234-8feb-4b12-ad25-eb0563f99457" />
+      <img width="481" height="538" alt="xrr_3" src="https://github.com/user-attachments/assets/ac937d6c-b6c7-4df6-a93a-8d27d0305523" 
+      <img width="481" height="538" alt="xrr_1" src="https://github.com/user-attachments/assets/dd0f2efb-cede-48d3-8e1b-b78eaa7b3674" />
+      <img width="481" height="537" alt="xrr_2" src="https://github.com/user-attachments/assets/e45babad-2d77-475d-8d8c-5b33f7620b69" />
+  </tr>
+</table>
+
 To optimize the diagnostic threshold, the evaluation module generates classification reports alongside visual confusion matrices across multiple decision thresholds (0.5, 0.4, 0.3, 0.2). This allows for a detailed analysis of the trade-off between sensitivity (recall) and specificity, ensuring a safer clinical application.
+<img width="2312" height="490" alt="conf_matrixes" src="https://github.com/user-attachments/assets/6dd2c592-173f-42d7-aaec-bed2d8ba5e3b" />
 
 ## Acknowledgments
 
