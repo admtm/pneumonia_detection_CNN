@@ -88,7 +88,7 @@ Training curves (loss and accuracy) are plotted after training to monitor model 
 
 Due to random weight initialization and the localized training splits, the test accuracy typically varies between 78% and 82%.
 
-The system also includes a visual testing tool. It processes individual X-ray images, makes a prediction, then displays the raw image alongside the model's confidence score. If the prediction is correct, the text is highlighted in green, while mistakes are marked in red.
+The system also includes a visual testing tool. It processes individual X-ray images, makes a prediction, then displays the raw image alongside the model's confidence score. If the prediction is correct, the text is highlighted in green, while mistakes are marked in red. Using 0.5 for decision treshold.
 
 <table>
   <tr>
