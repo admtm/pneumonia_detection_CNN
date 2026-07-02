@@ -92,10 +92,10 @@ The system also includes a visual testing tool. It processes individual X-ray im
 
 <table>
   <tr>
-      <img width="481" height="539" alt="xrr_4" src="https://github.com/user-attachments/assets/7b77d234-8feb-4b12-ad25-eb0563f99457" />
-      <img width="481" height="538" alt="xrr_3" src="https://github.com/user-attachments/assets/ac937d6c-b6c7-4df6-a93a-8d27d0305523" 
-      <img width="481" height="538" alt="xrr_1" src="https://github.com/user-attachments/assets/dd0f2efb-cede-48d3-8e1b-b78eaa7b3674" />
-      <img width="481" height="537" alt="xrr_2" src="https://github.com/user-attachments/assets/e45babad-2d77-475d-8d8c-5b33f7620b69" />
+    <td><img width="200" alt="xrr_4" src="https://github.com/user-attachments/assets/7b77d234-8feb-4b12-ad25-eb0563f99457" /></td>
+    <td><img width="200" alt="xrr_3" src="https://github.com/user-attachments/assets/ac937d6c-b6c7-4df6-a93a-8d27d0305523" /></td>
+    <td><img width="200" alt="xrr_1" src="https://github.com/user-attachments/assets/dd0f2efb-cede-48d3-8e1b-b78eaa7b3674" /></td>
+    <td><img width="200" alt="xrr_2" src="https://github.com/user-attachments/assets/e45babad-2d77-475d-8d8c-5b33f7620b69" /></td>
   </tr>
 </table>
 
